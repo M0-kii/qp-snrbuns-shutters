@@ -1,8 +1,6 @@
 # qp-snrbuns-shutters
 
-## What Is qp-snrbuns-shutters?
-
-qp-snrbuns-shutters is a simple script for shutters of snrbuns
+a simple script for shutters of snrbuns
 
 ## How To install
 
