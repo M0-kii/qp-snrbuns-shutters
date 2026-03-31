@@ -1,12 +1,18 @@
 # qp-snrbuns-shutters
 
-a simple script for shutters of snrbuns
+Simple synced shutters script for snrbuns interior.
 
-## How To install
+## Installation
 
-- Simply put the it in '/resources'
-- then 'ensure qp-snrbuns-shutters' in ur config.cfg
+- Put the folder in your `/resources` directory
+- Add `ensure qp-snrbuns-shutters` to your `server.cfg`
 
-## How Can I Change The Locations, Job, ETC..
+## Features
 
-- all the locations/jobs are editable
+- Shutters closed by default
+- Synced for all nearby players
+- Job-restricted toggle via ox_target
+
+## Configuration
+
+Edit `client.lua` to change locations, jobs, or shutter names.

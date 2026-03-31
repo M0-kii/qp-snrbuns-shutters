@@ -1,3 +1,4 @@
+-- client.lua
 local interiorID = nil
 local shutters = {
     {name = 'shutter01', job = 'smoothie', coords = vector3(-506.50, -709.02, 33.67), size = vec3(1,1,2), rot = 0},
@@ -23,6 +24,7 @@ CreateThread(function()
         end
         RefreshInterior(interiorID)
     end
+    TriggerServerEvent('shutters:requestSync')
 end)
 
 for _, sh in ipairs(shutters) do
@@ -38,15 +40,25 @@ for _, sh in ipairs(shutters) do
                 groups = sh.job,
                 onSelect = function()
                     if not interiorID then return end
-                    sh.state = not (sh.state or false)
-                    if sh.state then
-                        EnableInteriorProp(interiorID, sh.name)
-                    else
-                        DisableInteriorProp(interiorID, sh.name)
-                    end
-                    RefreshInterior(interiorID)
+                    TriggerServerEvent('shutters:toggle', sh.name)
                 end
             }
         }
     })
 end
+
+RegisterNetEvent('shutters:sync', function(name, state)
+    if not interiorID then return end
+    for _, sh in ipairs(shutters) do
+        if sh.name == name then
+            sh.state = state
+            if state then
+                EnableInteriorProp(interiorID, name)
+            else
+                DisableInteriorProp(interiorID, name)
+            end
+            RefreshInterior(interiorID)
+            return
+        end
+    end
+end)
