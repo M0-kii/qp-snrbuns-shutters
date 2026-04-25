@@ -1,6 +1,6 @@
 # qp-snrbuns-shutters
 
-Simple synced shutters script for snrbuns interior.
+Simple synced shutters script for Snr. buns interior MLO by NoPixel.
 
 ## Installation
 
@@ -11,7 +11,8 @@ Simple synced shutters script for snrbuns interior.
 
 - Shutters closed by default
 - Synced for all nearby players
-- Job-restricted toggle via ox_target
+- Ox_Target support
+- Job-restricted toggle
 
 ## Configuration
 
